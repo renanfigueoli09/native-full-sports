@@ -45,8 +45,8 @@ export default function App() {
     const GetToken = async () => {
       return fullsports_api
         .post("auth/login-app", {
-          clientID: String(process.env.REACT_APP_CLIENTID),
-          clientSecret: String(process.env.REACT_APP_CLIENSECRET),
+          client_id: String(process.env.REACT_APP_CLIENTID),
+          client_secret: String(process.env.REACT_APP_CLIENSECRET),
         })
         .then(async (res) => {
           SyncStorage.setItem("access_token", res.data.access_token);
@@ -62,8 +62,8 @@ export default function App() {
   setInterval(async () => {
     fullsports_api
       .post("auth/login-app", {
-        clientID: String(process.env.REACT_APP_CLIENTID),
-        clientSecret: String(process.env.REACT_APP_CLIENSECRET),
+        client_id: String(process.env.REACT_APP_CLIENTID),
+        client_secret: String(process.env.REACT_APP_CLIENSECRET),
       })
       .then(async (res) => {
         await SyncStorage.setItem("access_token", res.data.access_token);
